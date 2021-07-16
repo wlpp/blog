@@ -1,0 +1,37 @@
+.el-dialog {
+    width: 300px !important;
+    margin-top: 40vh !important;
+}
+
+.el-dialog__body {
+    padding: 0 20px;
+}
+
+.el-input {
+    margin-bottom: 10px;
+}
+
+.el-dialog__footer,.el-message-box__btns {
+    display: flex;
+    justify-content: space-around;
+
+    .el-button--primary {
+        margin-left: 30px;
+    }
+}
+
+.confirDialog .el-dialog__body {
+    display: none;
+}
+
+.createDialog .el-dialog__header,
+.updateDialog .el-dialog__header {
+    padding: 10px !important;
+}
+
+.el-button {
+    min-width: 115px !important;
+}
+.el-message-box{
+    width: 300px !important;
+}

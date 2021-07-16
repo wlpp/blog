@@ -1,0 +1,346 @@
+input[type=button],
+input[type=reset],
+input[type=search],
+input[type=submit],
+textarea {
+    -webkit-appearance: none;
+}
+
+
+li {
+    list-style: none;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0
+}
+
+body,
+html {
+    font-size: 16px;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Lato, Microsoft Jhenghei, Hiragino Sans GB, Microsoft YaHei, sans-serif;
+    color: #303133;
+    background-color: #fff;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgba(144, 146, 152, .3);
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #bbb;
+
+}
+
+img {
+    width: 100%;
+}
+
+button,
+input,
+textarea {
+    outline: none;
+    box-sizing: border-box
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+ol,
+p,
+ul {
+    margin: 0
+}
+
+ol,
+ul {
+    list-style: none;
+    padding: 0
+}
+
+button {
+    border: none;
+    outline: none
+}
+
+a {
+    color: inherit;
+    text-decoration: none
+}
+
+img {
+    border: none
+}
+
+.clear:after {
+    content: "";
+    display: block;
+    clear: both
+}
+
+.clear {
+    zoom: 1
+}
+
+.margin {
+    margin: 0 auto
+}
+
+.left {
+    float: left
+}
+
+.right {
+    float: right
+}
+
+.hide {
+    display: none
+}
+
+.show {
+    display: block
+}
+
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+@keyframes popIn {
+    from {
+        // left: 50%;
+        // top: 50%;
+        transform: scale3d(0, 0, 0) translate(-50%, -50%);
+        opacity: 0;
+    }
+
+    0% {
+        transform: scale3d(0, 0, 0) translate(-50%, -50%);
+        opacity: 0;
+    }
+
+    20% {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+
+    40% {
+        -webkit-animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+        animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+        transform: translate(-50%, -50%) scale3d(1.08, 1.08, 1.08);
+    }
+
+    60% {
+        -webkit-animation-timing-function: ease-in-out;
+        animation-timing-function: ease-in-out;
+        transform: translate(-50%, -50%) scaleX(1);
+    }
+
+    80% {
+        -webkit-animation-timing-function: ease-in-out;
+        animation-timing-function: ease-in-out;
+        transform: translate(-50%, -50%) scale3d(1.03, 1.03, 1.03);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transform: translate(-50%, -50%) scaleX(1);
+    }
+}
+
+@keyframes popOut {
+    0% {
+        -webkit-animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transform: translate(-50%, -50%) scaleX(1);
+    }
+
+    60% {
+        -webkit-animation-timing-function: ease-in-out;
+        animation-timing-function: ease-in-out;
+        transform: translate(-50%, -50%) scale3d(1.08, 1.08, 1.08);
+    }
+
+    80% {
+        opacity: 1;
+        -webkit-animation-timing-function: ease-in-out;
+        animation-timing-function: ease-in-out;
+    }
+
+    to {
+        opacity: 0;
+        -webkit-animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+        animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+        transform: translate(-50%, -50%) scale3d(0.3, 0.3, 0.3);
+    }
+}
+
+.flipX-enter-active {
+    animation: flipInX .8s
+}
+
+.flipX-leave-active {
+    animation: flipOutX .8s
+}
+
+@keyframes flipInX {
+    0% {
+        opacity: 0;
+        transform: perspective(400px) rotateX(90deg) scale3d(1.2, 1.2, 1.2)
+    }
+
+    50% {
+        opacity: 1;
+        -webkit-animation-timing-function: cubic-bezier(.455, .03, .515, .955);
+        animation-timing-function: cubic-bezier(.455, .03, .515, .955);
+        transform: perspective(400px) rotateX(-20deg) scaleX(1)
+    }
+
+    to {
+        transform: perspective(400px) rotateX(0deg) scaleX(1)
+    }
+}
+
+@keyframes flipOutX {
+    0% {
+        transform: perspective(400px) rotateX(0deg) scaleX(1)
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-animation-timing-function: cubic-bezier(.455, .03, .515, .955);
+        animation-timing-function: cubic-bezier(.455, .03, .515, .955);
+        transform: perspective(400px) rotateX(-30deg) scaleX(1)
+    }
+
+    to {
+        opacity: 0;
+        transform: perspective(400px) rotateX(90deg) scale3d(1.2, 1.2, 1.2)
+    }
+}
+
+/* @media screen and (min-width: 769px) {
+    .header-warp {
+        width: 1000px;
+        justify-content: flex-end;
+    }
+
+    .main {
+        width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .main-left {
+        width: 65%;
+    }
+
+} */
+
+@media screen and (max-width: 768px) {
+    .header_auto {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    .home_auto {
+        width: 100% !important;
+        box-shadow: none !important;
+    }
+
+    .home_left {
+        width: 100% !important;
+    }
+
+    .home_right {
+        display: none;
+    }
+
+    .home_article {
+        padding-bottom: 30px;
+    }
+
+    .home_left .page {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        height: 30px;
+        align-items: center;
+        background: #fff;
+        z-index: 99;
+    }
+
+    .article {
+        width: 100% !important;
+        padding: 0 10px 20px !important;
+    }
+
+    .books {
+        width: 100% !important;
+    }
+
+    .books .books-item {
+        width: 50% !important;
+    }
+
+    .mine {
+        width: 100% !important;
+        padding: 0 10px !important;
+    }
+
+    .login {
+        width: 90% !important;
+        height: auto !important;
+        padding-bottom: 20px;
+    }
+
+    .login-title {
+        margin: 40px 0 !important;
+    }
+
+    .login-center {
+        width: 90% !important;
+        margin: 0 auto 20px !important;
+        padding: 0 !important;
+    }
+
+    .login-input {
+        width: auto !important;
+        flex: 1 !important;
+        outline: none;
+        border: none;
+
+        padding-left: 10px;
+    }
+
+    .login-button {
+        width: 90% !important;
+    }
+
+    .v-md-pre-wrapper pre code {
+        padding-left: 10px !important;
+    }
+}
