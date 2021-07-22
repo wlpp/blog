@@ -20,6 +20,7 @@ interface ArticleType {
 interface CommentType {
   articleId: number;
   guestName: string;
+  imageName: string;
   commentText: string;
   replyGuest: string;
   replyText: string;
@@ -126,7 +127,7 @@ export default defineComponent({
         state.commentList = res.data.map((item: any) => {
           return {
             ...item,
-            guestName: item.guestName.slice(0, 1),
+            imageName: item.guestName.slice(0, 1),
             createTime: item.createTime.slice(0, item.createTime.indexOf("T")),
             updateTime: new Date(item.updateTime).getTime()
           };

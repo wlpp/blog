@@ -3,7 +3,7 @@
     <div class="avatar">
       <img src="../../assets/images/avator.png" alt="" />
     </div>
-    <p>大派</p>
+    <p>黑派</p>
     <p>男、95后</p>
     <p>现居广东广州</p>
     <p>是一名前端开发工程师</p>

@@ -28,7 +28,7 @@
       </div>
       <div class="article_comment--content">
         <div class="comment_item" v-for="(item, index) in commentList" :key="index">
-          <div class="comment_item--img">{{ item.guestName }}</div>
+          <div class="comment_item--img">{{ item.imageName }}</div>
           <div class="comment_item--content">
             <p class="name">
               <span>{{ item.guestName }} </span>
@@ -67,7 +67,12 @@
       <div class="article_suspended--item" :badge="article.likeNum" :class="isLike && 'act_suspended'" @click="onLike">
         <i class="iconfont iconzang"></i>
       </div>
-      <div class="article_suspended--item" :badge="commentList.length" :class="commentList.length>0 && 'act_suspended'" @click="toComment">
+      <div
+        class="article_suspended--item"
+        :badge="commentList.length"
+        :class="commentList.length > 0 && 'act_suspended'"
+        @click="toComment"
+      >
         <i class="iconfont iconpinglun"></i>
       </div>
       <!-- <div class="article_suspended--item up">
@@ -81,6 +86,7 @@
 </template>
 <script lang="ts" src="./index.ts"></script>
 
-<style lang="scss">
+<style lang="scss" >
 @import "./index.scss";
+@import "../../assets/css/markdown.scss";
 </style>

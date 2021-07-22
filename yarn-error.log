@@ -1,5 +1,5 @@
 Arguments: 
-  D:\node\node.exe D:\node\node_modules\yarn\bin\yarn.js aa
+  D:\node\node.exe D:\node\node_modules\yarn\bin\yarn.js add zx-calendar
 
 PATH: 
   C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\TortoiseGit\bin;C:\Program Files\TortoiseSVN\bin;D:\nvm;D:\node;C:\Program Files\Git\cmd;C:\Program Files (x86)\ZeroTier\One\;D:\AOMEI\AOMEI Backupper 5.7.0;D:\;C:\Users\wengqinpai\AppData\Local\Microsoft\WindowsApps;C:\Users\wengqinpai\AppData\Local\Programs\Microsoft VS Code\bin;D:\nvm;D:\node;C:\Users\wengqinpai\AppData\Local\Programs\Fiddler;C:\Users\wengqinpai\AppData\Local\Microsoft\WindowsApps;C:\Users\wengqinpai\AppData\Local\Yarn\bin;
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  SyntaxError: D:\MyProject\vite-blog\package.json: Unexpected token / in JSON at position 109
+  SyntaxError: D:\MyProject\blog\package.json: Unexpected token } in JSON at position 525
       at JSON.parse (<anonymous>)
       at D:\nvm\v14.16.0\node_modules\yarn\lib\cli.js:1625:59
       at Generator.next (<anonymous>)
@@ -26,19 +26,22 @@ npm manifest:
     "version": "0.0.0",
     "scripts": {
       "dev": "vite",
-      "build": "vue-tsc --noEmit && vite build",
-      // "serve": "vite preview",
-      "aa": "vite preview"
+      "build": "vite build --mode production --base=/blog/",
+      "serve": "vite preview --mode development",
+      "write": "vite"
     },
     "dependencies": {
       "@kangc/v-md-editor": "^2.3.5",
       "axios": "^0.21.1",
       "babel-plugin-prismjs": "^2.0.1",
+      "dotenv": "^10.0.0",
       "element-plus": "^1.0.2-beta.53",
       "marked": "^2.1.3",
+      "particles.js": "^2.0.0",
       "sass": "^1.35.1",
       "vue": "^3.0.5",
-      "vue-router": "4"
+      "vue-particles": "^1.0.9",
+      "vue-router": "4",
     },
     "devDependencies": {
       "@rollup/plugin-alias": "^3.1.2",
@@ -994,6 +997,11 @@ Lockfile:
       no-case "^3.0.4"
       tslib "^2.0.3"
   
+  dotenv@^10.0.0:
+    version "10.0.0"
+    resolved "https://registry.nlark.com/dotenv/download/dotenv-10.0.0.tgz?cache=0&sync_timestamp=1621627076012&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fdotenv%2Fdownload%2Fdotenv-10.0.0.tgz#3d4227b8fb95f81096cdd2b66653fb2c7085ba81"
+    integrity sha1-PUInuPuV+BCWzdK2ZlP7LHCFuoE=
+  
   duplexer2@~0.1.4:
     version "0.1.4"
     resolved "https://registry.nlark.com/duplexer2/download/duplexer2-0.1.4.tgz#8b12dab878c0d69e3e7891051662a32fc6bddcc1"
@@ -1905,6 +1913,11 @@ Lockfile:
       dot-case "^3.0.4"
       tslib "^2.0.3"
   
+  particles.js@^2.0.0:
+    version "2.0.0"
+    resolved "https://registry.npm.taobao.org/particles.js/download/particles.js-2.0.0.tgz#21386c4328d6c7f96780a201e96eedfc09c736f6"
+    integrity sha1-IThsQyjWx/lngKIB6W7t/AnHNvY=
+  
   pascal-case@^3.1.2:
     version "3.1.2"
     resolved "https://registry.npm.taobao.org/pascal-case/download/pascal-case-3.1.2.tgz?cache=0&sync_timestamp=1606867325163&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fpascal-case%2Fdownload%2Fpascal-case-3.1.2.tgz#b48e0ef2b98e205e7c1dae747d0b1508237660eb"
@@ -2492,6 +2505,14 @@ Lockfile:
     optionalDependencies:
       fsevents "~2.3.2"
   
+  vue-particles@^1.0.9:
+    version "1.0.9"
+    resolved "https://registry.npm.taobao.org/vue-particles/download/vue-particles-1.0.9.tgz#29d9cc2be0157df1c0a87ec3b96c96f33279526e"
+    integrity sha1-KdnMK+AVffHAqH7DuWyW8zJ5Um4=
+    dependencies:
+      particles.js "^2.0.0"
+      vue "^2.2.6"
+  
   vue-router@4:
     version "4.0.10"
     resolved "https://registry.nlark.com/vue-router/download/vue-router-4.0.10.tgz#ec8fda032949b2a31d3273170f8f376e86eb52ac"
@@ -2505,6 +2526,11 @@ Lockfile:
     integrity sha1-DNkNtnn1PqFpQlS4Zj/bPWJKCHI=
     dependencies:
       unzipper "0.10.11"
+  
+  vue@^2.2.6:
+    version "2.6.14"
+    resolved "https://registry.nlark.com/vue/download/vue-2.6.14.tgz#e51aa5250250d569a3fbad3a8a5a687d6036e235"
+    integrity sha1-5RqlJQJQ1Wmj+606ilpofWA24jU=
   
   vue@^3.0.5:
     version "3.1.2"
@@ -2540,3 +2566,8 @@ Lockfile:
     version "3.1.1"
     resolved "https://registry.npm.taobao.org/yallist/download/yallist-3.1.1.tgz#dbb7daf9bfd8bac9ab45ebf602b8cbad0d5d08fd"
     integrity sha1-27fa+b/YusmrRev2ArjLrQ1dCP0=
+  
+  zx-calendar@^0.6.1:
+    version "0.6.1"
+    resolved "https://registry.nlark.com/zx-calendar/download/zx-calendar-0.6.1.tgz#86d9a9f6e9cb5018740a2f3cf0da7e918226916b"
+    integrity sha1-htmp9unLUBh0Ci888Np+kYImkWs=

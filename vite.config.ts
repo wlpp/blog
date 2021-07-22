@@ -22,6 +22,7 @@ export default defineConfig({
   //     }
   //   }
   // },
+  base: "/",
   plugins: [
     vue({ include: [/\.vue$/, /\.md$/] }),
     Markdown(),

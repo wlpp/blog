@@ -22,12 +22,11 @@ app.config.globalProperties.$isLogin = !!getCookie("USER_LOGIN");
 app.use(ElButton).use(ElCalendar).use(ElDialog).use(ElInput).use(ElIcon).use(ElRate);
 app.use(VueMarkdownEditor);
 app.use(router);
-console.log(import.meta.env);
-// router.beforeEach((to: any, from: any, next: any) => {
-//   if (to.name === "Write") {
-//     homeApi.getBlogger().then((res: any) => (res.data[0].author ? next() : next("/")));
-//   } else {
-//     next();
-//   }
-// });
+router.beforeEach((to: any, from: any, next: any) => {
+  if (to.name === "Write") {
+    homeApi.getBlogger().then((res: any) => (res.data[0].author ? next() : next("/")));
+  } else {
+    next();
+  }
+});
 app.mount("#app");

@@ -2,7 +2,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --mode production --base=/blog/",
+    "build": "vite build --mode production ",
     "serve": "vite preview --mode development",
     "write": "vite"
   },
@@ -13,8 +13,10 @@
     "dotenv": "^10.0.0",
     "element-plus": "^1.0.2-beta.53",
     "marked": "^2.1.3",
+    "particles.js": "^2.0.0",
     "sass": "^1.35.1",
     "vue": "^3.0.5",
+    "vue-particles": "^1.0.9",
     "vue-router": "4"
   },
   "devDependencies": {

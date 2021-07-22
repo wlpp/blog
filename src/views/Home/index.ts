@@ -1,6 +1,7 @@
 import { defineComponent, getCurrentInstance, onMounted, reactive, toRefs } from "vue";
 import homeApi from "@/service/homeApi";
 import { useRouter } from "vue-router";
+import Calendar from "@/components/calendar.vue";
 interface allArticleType {
   _id: string;
   id: number;
@@ -23,7 +24,9 @@ interface bloggerType {
   avatar: string;
 }
 export default defineComponent({
-  components: {},
+  components: {
+    Calendar
+  },
   setup() {
     const state = reactive({
       allArticle: <allArticleType[]>[],
@@ -36,7 +39,7 @@ export default defineComponent({
       queryTotal: 0,
       isQuery: true,
       isChange: false,
-      date: new Date()
+      va: "1990/09/12"
     });
     const router = useRouter();
     const getAllArticle = () => {
@@ -55,8 +58,8 @@ export default defineComponent({
               tagNames: item.tagNames.split(",")
             };
           });
-        state.isQuery && (state.queryTotal = res.pageTotal);
-        state.isQuery = false;
+        state.queryTotal = res.pageTotal;
+        // state.isQuery = false;
       });
     };
     const getTags = () => {
@@ -70,7 +73,6 @@ export default defineComponent({
         state.blogger = res.data && res.data[0];
       });
     };
-    getBlogger();
     const onTags = (_idx: number) => {
       // state.tagNames[_idx].status = !state.tagNames[_idx].status;
       // state.queryTags = state.tagNames
@@ -106,6 +108,7 @@ export default defineComponent({
     onMounted(() => {
       getAllArticle();
       getTags();
+      getBlogger();
     });
     return {
       ...toRefs(state),

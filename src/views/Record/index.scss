@@ -1,0 +1,142 @@
+.record {
+    width: 1000px;
+    background-color: #fff;
+    // box-shadow: 0 2px 4px 0 #d9d9d9;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 10px 0;
+    margin: 0 auto;
+
+    &_item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 50px;
+    }
+
+    .time {
+        user-select: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-right: 30px;
+        flex-shrink: 0;
+
+        &_circle {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 75px;
+            height: 75px;
+            border-radius: 100%;
+            border: 2px solid #999;
+
+            .month {
+                color: #999;
+            }
+
+            .day {
+                font-size: 22px;
+                font-weight: 700;
+                color: #737373;
+            }
+        }
+
+        &_year {
+            font-size: 18px;
+            color: #c9c9c9;
+            margin-top: 5px;
+        }
+    }
+
+    .content {
+        flex: 1;
+        font-size: 15px;
+        color: #737373;
+        line-height: 24px;
+        padding-top: 5px;
+        transition: all .5s ease;
+        padding-bottom: 40px;
+        border-bottom: 1px dashed #c9c9c9;
+
+        &_oper {
+            margin-top: 25px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            color: #c9c9c9;
+            cursor: pointer;
+            transition: all .3s ease-in;
+
+            i {
+                font-size: 15px;
+                position: relative;
+
+            }
+
+            .iconzang {
+                font-size: 18px;
+            }
+
+            &:hover {
+                color: #0bb6eb;
+            }
+        }
+    }
+
+    &_page {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        font-size: 14px;
+        color: #666;
+
+        span {
+            margin-right: 10px;
+            line-height: 1;
+        }
+
+        b {
+            font-weight: bold;
+            margin: 0 5px;
+        }
+
+        .arrow {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            i {
+                line-height: 1;
+                font-size: 12px;
+
+                &:first-of-type {
+                    margin-right: 5px;
+                }
+
+                &:last-of-type {
+                    margin-left: 5px;
+                }
+            }
+
+            &:hover {
+                color: #0bb6eb !important;
+            }
+        }
+
+        .disable {
+            color: #ccc !important;
+            cursor: not-allowed;
+
+            &:hover {
+                color: #ccc !important;
+            }
+        }
+    }
+}

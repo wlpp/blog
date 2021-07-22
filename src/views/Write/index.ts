@@ -34,6 +34,7 @@ export default defineComponent({
       };
       articleApi.createArticle(params).then((res: any) => {
         state.createVisable = false;
+        console.log(res);
         ElMessage.success(res.message);
         setTimeout(() => {
           router.push("/");

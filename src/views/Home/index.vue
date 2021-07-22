@@ -3,7 +3,9 @@
     <div class="home_auto">
       <div class="home_left">
         <div class="queryBar">
-          <span>当前检索条件:</span>
+          <span
+            >当前检索条件:<b>{{ queryTags }}</b>
+          </span>
         </div>
         <div class="home_article">
           <div class="home_article--item" v-for="(item, index) in allArticle" :key="index" @click="goArticle(item.id)">
@@ -59,7 +61,8 @@
           <div class="ordme_avator">
             <img :src="blogger && blogger.avatar" alt="" />
           </div>
-          <div class="ordme_name">{{ blogger &&blogger.name }}</div>
+          <div class="ordme_name">{{ blogger && blogger.name }}</div>
+          <div class="ordme_tip">趁年轻,尽情潇洒!</div>
           <!-- <div class="ordme_info">
             <div>
               <span>{{ blogger && blogger.article }}</span>
@@ -87,6 +90,7 @@
             >
           </div>
         </div>
+        <!-- <calendar></calendar> -->
       </div>
     </div>
   </div>

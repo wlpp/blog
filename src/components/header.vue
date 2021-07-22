@@ -4,7 +4,7 @@
       <div class="header_nav">
         <router-link :to="'/'" active-class="active">主页</router-link>
         <router-link :to="'/books'" active-class="active">书单</router-link>
-        <router-link :to="'/'">行博</router-link>
+        <router-link :to="'/record'">日志</router-link>
         <router-link :to="'/mine'" active-class="active">关于</router-link>
         <!-- <li class="active" :class="" @click="toLink('/')">主页</li>
         <li @click="toLink('/books')">书单</li>

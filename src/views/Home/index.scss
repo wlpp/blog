@@ -28,6 +28,9 @@
         font-weight: 400;
         color: #999;
         margin-right: 15px;
+        b{
+          margin-left: 6px;
+        }
       }
     }
 
@@ -194,10 +197,19 @@
         letter-spacing: 2px;
       }
 
+      &_tip {
+        margin-top: 10px;
+        color: #666;
+        letter-spacing: 2px;
+        font-size: 14px;
+      }
+
       &_info {
         display: flex;
         align-items: center;
         margin: 20px 0;
+
+
 
         div {
           display: flex;
