@@ -346,4 +346,11 @@ img {
     .v-md-pre-wrapper pre code {
         padding-left: 10px !important;
     }
+    .record{
+        width: 100% !important;
+        padding: 10px !important;
+    }
+    .record_item{
+        margin-bottom: 20px;
+    }
 }
