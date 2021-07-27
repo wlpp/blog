@@ -35,7 +35,7 @@ export default defineComponent({
 @import "../assets/css/mixins.scss";
 .header {
   position: relative;
-  height: 80px;
+  height: 48px;
   margin-bottom: 15px;
   background: url("../assets/images/h_bg.png") top / cover no-repeat;
   border-bottom: 1px solid #e5e5e5;

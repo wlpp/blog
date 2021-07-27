@@ -1,77 +1,43 @@
 const FTP = require("ftp");
 const path = require("path");
 const fs = require("fs");
-const resDomain = "https://res.360kad.com";
-const resToPath = "\\mscript\\vue\\vue_common_yingda";
-
-FTP.prototype.putAsync = function (input, destPath) {
-  const that = this;
-  return new Promise((resolve, reject) => {
-    const destDirName = path.dirname(destPath);
-    that.lastMod(destDirName, (lastModErr, lastMod) => {
-      if (lastModErr) {
-        that.mkdir(destDirName, mkdirErr => {
-          if (mkdirErr) {
-            return resolve(mkdirErr);
-          } else {
-            that.put(input, destPath, putErr => {
-              return resolve(putErr);
-            });
-          }
-        });
-      } else {
-        that.put(input, destPath, putErr => {
-          return resolve(putErr);
-        });
-      }
-    });
-  });
-};
+const chalk = require("chalk");
+const localPath = path.resolve(__dirname, "../../dist");
+const ftpPath = "/blog";
 const ftpClient = new FTP();
 ftpClient.connect({
-  host: "10.0.32.77",
+  host: "120.78.199.0",
   port: 21,
-  user: "ftp_res_12",
-  password: "GDKAD360*()com123",
+  user: "wlpp",
+  password: "AZtfbRBaCRDShP7b",
   keepalive: 1000
 });
-ftpClient.on("ready", () => {
-  console.log("开始复制FTP...");
-  const distPath = path.resolve(__dirname, "../dist");
-  walk(distPath, async function (err, results) {
+ftpClient.on("ready", function () {
+  walk(localPath, async function (err, results) {
+    console.log(chalk.yellow("正在上传至FTP"));
     if (err) {
-      console.error(`读取本地dist文件夹出错：${JSON.stringify(err)}`);
+      console.log(chalk.red(`读取本地dist文件夹出错：${JSON.stringify(err)}`));
       return;
     }
-    const cdnPurgeUrlList = [];
     for (let i = 0; i < results.length; i++) {
-      const filename = results[i];
-      // 生成cdn推送url
-      const cdnPurgeUrl = createCDNPurgeUrl(resDomain, resToPath, distPath, filename);
-      if (cdnPurgeUrl) {
-        cdnPurgeUrlList.push(cdnPurgeUrl);
-      }
-      // 推送到ftp
-      const ftpPath = resToPath + filename.replace(distPath, "");
-      const err = await ftpClient.putAsync(filename, ftpPath);
-      if (err) {
-        console.error(`filename:${filename},ftpPath:${ftpPath},error:${JSON.stringify(err)}`);
-      }
+      const fileName = results[i];
+      let ftpFile = results[i].replace(localPath, "").replace(/\\/g, "/");
+      let ftpMkdir = path.dirname(ftpFile);
+      ftpClient.lastMod(ftpPath + ftpMkdir, function (err) {
+        if (err) {
+          ftpClient.mkdir(ftpPath + ftpMkdir, function (mkdirErr) {
+            ftpClient.put(fileName, ftpPath + ftpFile, function (err) {
+              if (err) {
+                console.log(ftpFile, "err");
+              }
+              ftpClient.end();
+            });
+          });
+        }
+      });
     }
-    console.log("已复制到线上资源站");
-    ftpClient.end();
-    const cdnPurgeUrlFileName = `${__dirname}/cdnPurgeUrl.txt`;
-    fs.writeFile(cdnPurgeUrlFileName, cdnPurgeUrlList.join("\r\n"), err => {
-      if (err) {
-        console.error(err);
-      } else {
-        console.log(`已生成cdn推送URL目录至${cdnPurgeUrlFileName}`);
-      }
-    });
+    console.log(chalk.green("FTP上传成功"));
   });
-});
-ftpClient.on("error", err => {
-  console.error(`FTP 出错：${JSON.stringify(err)}`);
 });
 const walk = function (dir, done) {
   let results = [];
@@ -96,11 +62,16 @@ const walk = function (dir, done) {
   });
 };
 
-const filterSuffixs = [".html", ".map"];
-const createCDNPurgeUrl = function (domain, resToPath, distPath, filename) {
-  if (!filterSuffixs.includes(filename.substring(filename.lastIndexOf(".")))) {
-    const cdnPurgeUrl = (domain + resToPath + filename.replace(distPath, "")).replace(/\\/g, "/");
-    return cdnPurgeUrl;
-  }
-  return null;
-};
+// if (fs.existsSync(localPath)) {
+//   fs.readdir(localPath, function (err, files) {
+//     if (err) {
+//       chalk.red(err);
+//       return;
+//     }
+//     files.map(item => {
+//       console.log(fs.readdir(item));
+//     });
+//     // console.log(files);
+//     // ftpClient.on("ready", function () {
+//   });
+// }

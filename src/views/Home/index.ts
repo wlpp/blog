@@ -39,7 +39,8 @@ export default defineComponent({
       queryTotal: 0,
       isQuery: true,
       isChange: false,
-      va: "1990/09/12"
+      va: "1990/09/12",
+     
     });
     const router = useRouter();
     const getAllArticle = () => {

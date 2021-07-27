@@ -1,9 +1,7 @@
-.article {
-    width: 1000px;
-    margin: 0 auto;
-    box-sizing: border-box;
-    padding-bottom: 20px;
 
+.article {
+    @extend .bgStyle;
+    padding: 0 20px 20px;
     &_title {
         font-size: 36px;
         padding: 24px 0;
@@ -325,7 +323,7 @@
     &_suspended {
         position: fixed;
         top: 120px;
-        margin-left: -80px;
+        margin-left: -90px;
         display: flex;
         flex-direction: column;
 

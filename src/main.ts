@@ -12,6 +12,7 @@ import "@kangc/v-md-editor/lib/theme/style/vuepress.css";
 import VueMarkdownEditor from "@kangc/v-md-editor";
 import vuepressTheme from "@kangc/v-md-editor/lib/theme/vuepress.js";
 import Prism from "prismjs";
+import Particles from "particles.vue3";
 import homeApi from "@/service/homeApi";
 VueMarkdownEditor.use(vuepressTheme, {
   Prism
@@ -20,7 +21,7 @@ Prism.highlightAll();
 const app = createApp(App);
 app.config.globalProperties.$isLogin = !!getCookie("USER_LOGIN");
 app.use(ElButton).use(ElCalendar).use(ElDialog).use(ElInput).use(ElIcon).use(ElRate);
-app.use(VueMarkdownEditor);
+app.use(VueMarkdownEditor).use(Particles)
 app.use(router);
 router.beforeEach((to: any, from: any, next: any) => {
   if (to.name === "Write") {

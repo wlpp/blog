@@ -18,12 +18,7 @@
 
 <style lang="scss" scoped>
 .mine {
-  width: 1000px;
-  margin: 0 auto;
-  background-color: #fff;
-  box-shadow: 0 2px 4px 0 #d9d9d9;
-  box-sizing: border-box;
-  border-radius: 10px;
+  @extend .bgStyle;
   text-align: center;
   padding: 50px 0;
   img {
@@ -32,9 +27,9 @@
     margin: 30px auto 20px;
     border-radius: 50%;
   }
-  p{
-      font-size: 15px;
-      line-height: 45px;
+  p {
+    font-size: 15px;
+    line-height: 45px;
   }
 }
 </style>

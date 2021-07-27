@@ -23,6 +23,13 @@ export default defineConfig({
   //   }
   // },
   base: "/",
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@import "./src/assets/css/mixins.scss";'
+      }
+    }
+  },
   plugins: [
     vue({ include: [/\.vue$/, /\.md$/] }),
     Markdown(),
