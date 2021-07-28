@@ -3,12 +3,12 @@ const path = require("path");
 const fs = require("fs");
 const chalk = require("chalk");
 const localPath = path.resolve(__dirname, "../../dist");
-const ftpPath = "/blog";
+const ftpPath = "/";
 const ftpClient = new FTP();
 ftpClient.connect({
   host: "120.78.199.0",
   port: 21,
-  user: "wlpp",
+  user: "wlpp", 
   password: "AZtfbRBaCRDShP7b",
   keepalive: 1000
 });
@@ -62,16 +62,3 @@ const walk = function (dir, done) {
   });
 };
 
-// if (fs.existsSync(localPath)) {
-//   fs.readdir(localPath, function (err, files) {
-//     if (err) {
-//       chalk.red(err);
-//       return;
-//     }
-//     files.map(item => {
-//       console.log(fs.readdir(item));
-//     });
-//     // console.log(files);
-//     // ftpClient.on("ready", function () {
-//   });
-// }

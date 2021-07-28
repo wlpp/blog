@@ -86,7 +86,7 @@
               v-for="(item, index) in tagNames"
               :key="index"
               @click="onTags(index)"
-              >{{ item.name }}</span
+              >{{ item }}</span
             >
             <div style="width:80px; height:0px "></div>
             <div style="width:80px; height:0px"></div>

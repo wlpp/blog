@@ -356,7 +356,9 @@ body::-webkit-scrollbar-track,
     right: 8.5px;
     top: 7.5px !important;
 }
-
+.scrollbar .scrollbar__bar {
+    display: none !important;
+}
 a.sidebar-link.active {
     color: #1890ff;
     border-left-color: #1890ff;

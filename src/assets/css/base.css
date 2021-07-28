@@ -351,4 +351,7 @@ img {
     .record_item {
         margin-bottom: 20px;
     }
+    #tsparticles{
+        display: none !important;
+    }
 }

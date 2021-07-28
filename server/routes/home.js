@@ -3,7 +3,6 @@ const tags = require("../models/tags");
 const blogger = require("../models/blogger");
 const reader = require("../models/reader");
 const allArticle = require("../models/allArticle");
-
 // 文章列表
 router.get("/allArticle", async (ctx, next) => {
   const tagNames = eval("/^.*" + ctx.query.tagNames + ".*$/");
@@ -37,7 +36,7 @@ router.get("/allArticle", async (ctx, next) => {
 });
 // 标签列表
 router.get("/tags", async (ctx, next) => {
-  const result = await tags.find();
+  const result = await tags.distinct("name");
   if (result) {
     ctx.body = {
       code: 200,
