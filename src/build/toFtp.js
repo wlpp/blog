@@ -2,13 +2,15 @@ const FTP = require("ftp");
 const path = require("path");
 const fs = require("fs");
 const chalk = require("chalk");
+const ProgressBar = require("progress");
+
 const localPath = path.resolve(__dirname, "../../dist");
 const ftpPath = "/";
 const ftpClient = new FTP();
 ftpClient.connect({
   host: "120.78.199.0",
   port: 21,
-  user: "wlpp", 
+  user: "wlpp",
   password: "AZtfbRBaCRDShP7b",
   keepalive: 1000
 });
@@ -19,6 +21,7 @@ ftpClient.on("ready", function () {
       console.log(chalk.red(`读取本地dist文件夹出错：${JSON.stringify(err)}`));
       return;
     }
+    var bar = new ProgressBar("[ :bar ]", { total: results.length });
     for (let i = 0; i < results.length; i++) {
       const fileName = results[i];
       let ftpFile = results[i].replace(localPath, "").replace(/\\/g, "/");
@@ -30,13 +33,16 @@ ftpClient.on("ready", function () {
               if (err) {
                 console.log(ftpFile, "err");
               }
-              ftpClient.end();
+              bar.tick();
+              if (bar.complete) {
+                ftpClient.end();
+                console.log(chalk.green("FTP上传成功"));
+              }
             });
           });
         }
       });
     }
-    console.log(chalk.green("FTP上传成功"));
   });
 });
 const walk = function (dir, done) {
@@ -61,4 +67,3 @@ const walk = function (dir, done) {
     });
   });
 };
-
