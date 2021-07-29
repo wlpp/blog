@@ -64,9 +64,14 @@ export default defineComponent({
     };
     const getTags = () => {
       homeApi.getTags().then((res: any) => {
-        state.tagNames = res.data;
+        state.tagNames = res.data.map((item: any) => {
+          return {
+            name: item,
+            status: false
+          };
+        });
+        console.log(state.tagNames);
       });
-      
     };
 
     const getBlogger = () => {
