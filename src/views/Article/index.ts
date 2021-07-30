@@ -164,7 +164,7 @@ export default defineComponent({
         case "next":
           if (state.pageIndex >= state.pageTotal) return;
           state.pageIndex++;
-          break;
+          break; 
       }
       getComment();
     };
